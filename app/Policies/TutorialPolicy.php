@@ -27,7 +27,7 @@ class TutorialPolicy
      */
     public function update(User $user, Tutorial $tutorial)
     {
-        return $user->owns($tutorial);
+        return $tutorial->users()->where('user_id', $user->id)->exists();
     }
 
     /**
@@ -37,6 +37,6 @@ class TutorialPolicy
      */
     public function delete(User $user, Tutorial $tutorial)
     {
-        return $user->owns($tutorial);
+        return $tutorial->users()->where('user_id', $user->id)->exists();
     }
 }

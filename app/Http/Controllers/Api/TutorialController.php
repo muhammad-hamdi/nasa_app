@@ -34,7 +34,9 @@ class TutorialController extends Controller
      */
     public function store(TutorialRequest $request, Disaster $disaster)
     {
-        $tutorial = $disaster->tutorials()->create($request->all());
+        $tutorial = auth()->user()->tutorials()->create(array_merge($request->all(), [
+            'disaster_id' => $disaster->id
+        ]));
 
         return new TutorialResource($tutorial);
     }

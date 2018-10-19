@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Tutorial;
+use App\Policies\TutorialPolicy;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Contracts\Hashing\Hasher;
 use App\Auth\Providers\EloquentMultipleUserProvider;
@@ -16,6 +18,7 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         'App\Model' => 'App\Policies\ModelPolicy',
+        Tutorial::class => TutorialPolicy::class
     ];
 
     /**

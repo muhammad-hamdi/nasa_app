@@ -28,4 +28,8 @@ Route::post('login', 'Auth\LoginController@login')->name('users.login');
 Route::middleware('auth:api')->group(function() {
     Route::resource('disasters', 'DisasterController')->only('index', 'show');
     Route::get('disasters/{disaster}/tutorials', 'TutorialController@index')->name('disaster.tutorials.index');
+    Route::post('disasters/{disaster}/tutorials', 'TutorialController@store')->name('disaster.tutorials.store');
+    Route::get('tutorials/{tutorial}', 'TutorialController@update')->name('tutorials.update');
+    Route::put('tutorials/{tutorial}', 'TutorialController@show')->name('tutorials.show');
+    Route::delete('tutorials/{tutorial}', 'TutorialController@destroy')->name('tutorials.destroy');
 });
