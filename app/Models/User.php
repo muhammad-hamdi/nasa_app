@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Relations\UserRelations;
 use Laravel\Passport\HasApiTokens;
 use App\Models\Helpers\UserHelpers;
 use App\Models\Concerns\Presentable;
@@ -21,6 +22,7 @@ class User extends Authenticatable implements HasMedia
         Resourcable,
         Presentable,
         HasMediaTrait,
+        UserRelations,
         UserHelpers {
            UserHelpers::getImagePlaceholder insteadof HasMediaTrait;
         }
@@ -58,6 +60,8 @@ class User extends Authenticatable implements HasMedia
         'name',
         'email',
         'password',
+        'lat',
+        'lng'
     ];
 
     /**
