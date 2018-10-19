@@ -22,3 +22,13 @@ Route::get('notifications', 'NotificationController@index')->name('notifications
 Route::resource('admins', 'AdminController');
 
 Route::resource('users', 'UserController');
+
+Route::resource('disasters', 'DisasterController');
+
+Route::resource('list_templates', 'ListTemplateController');
+
+Route::resource('list_template_items', 'ListTemplateItemController')->except('create', 'index', 'store');
+
+Route::post('list_template_items/{list_template}', 'ListTemplateItemController@store')->name('list_template_items.store');
+
+Route::resource('tutorials', 'TutorialController');

@@ -1,0 +1,1 @@
+{{ BsForm::text('title') }}

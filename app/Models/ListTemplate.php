@@ -16,6 +16,7 @@ class ListTemplate extends Model
      */
     protected $fillable = [
         'name',
-        'is_public'
+        'disaster_id',
+        'is_public',
     ];
 }

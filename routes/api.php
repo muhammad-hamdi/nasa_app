@@ -21,3 +21,11 @@ Route::middleware('auth:api')
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('register', 'Auth\RegisterController@register')->name('users.register');
+Route::post('login', 'Auth\LoginController@login')->name('users.login');
+
+Route::middleware('auth:api')->group(function() {
+    Route::resource('disasters', 'DisasterController')->only('index', 'show');
+    Route::get('disasters/{disaster}/tutorials', 'TutorialController@index')->name('disaster.tutorials.index');
+});

@@ -11,6 +11,7 @@ class Tutorial extends Model
 
     protected $fillable = [
         'title',
-        'content'
+        'content',
+        'disaster_id'
     ];
 }

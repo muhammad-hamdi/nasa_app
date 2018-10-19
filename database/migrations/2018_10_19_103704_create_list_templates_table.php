@@ -18,7 +18,7 @@ class CreateListTemplatesTable extends Migration
             $table->string('name');
             $table->boolean('is_public')->default(true);
 
-            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
             $table->unsignedInteger('disaster_id');

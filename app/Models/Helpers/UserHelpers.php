@@ -21,4 +21,9 @@ trait UserHelpers
     {
         return url('images/user.png');
     }
+
+    public function owns($item)
+    {
+        return $item->user_id == $this->id;
+    }
 }
